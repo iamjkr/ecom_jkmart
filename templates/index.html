@@ -31,6 +31,54 @@ Home
   </button>
 </div>
 {% endblock banner-slider %}
-{% block content %}
 
+{% block information %}
+<div class="container">
+    <div class="row bg-dark text-center p-5 text-white border-bottom shadow">
+        <h1>Product</h1>
+        <small class="fs-5">some content here.....</small>
+    </div>
+</div>
+
+{% endblock information %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Welcome to Dairy Products Page..!!</h2>
+    <br><br><br>
+    <div class="row container">
+        <div class="col-md-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+        <div class="goodnesssec buttermilk smbg"></div>
+        <a href="#" >
+            <div class="goodnessseccont text-center">
+                <img src="{% static 'images/product/tonemilk.png' %}" class="img-responsive" alt="">
+                <p class=""mlkpro">Milk</p>
+            </div>
+        </a>        
+        </div>
+
+        <div class="col-md-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk buttermilk "></div>
+            <a href="#" >
+                <div class="goodnessseccont text-center">
+                    <img src="{% static 'images/product/tonemilk.png' %}" class="img-responsive" alt="">
+                    <p class=""mlkpro">Milk</p>
+                </div>
+            </a>        
+        </div>
+
+            <div class="col-md-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                <div class="goodnesssec buttermilk curdbgpro"></div>
+                <a href="#" >
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'images/product/tonemilk.png' %}" class="img-responsive" alt="">
+                        <p class=""mlkpro">Milk</p>
+                    </div>
+                </a>        
+            </div>
+        
+
+    </div>
+    <br><br><br><br><br><br><br><br>
+</div>
 {% endblock content %}

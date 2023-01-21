@@ -20,7 +20,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src={% static "images/neel.png" %} width="60" height="40" alt=""></a>
+          <a class="navbar-brand" href="#"><img src={% static "images/logo.png" %} width="60" height="40" alt=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,12 +35,12 @@
                   Products
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Milk</a></li>
-                  <li><a class="dropdown-item" href="#">Lassi</a></li>
-                  <li><a class="dropdown-item" href="#">Badam Sake</a></li>
-                  <li><a class="dropdown-item" href="#">Chocolate</a></li>
-                  <li><a class="dropdown-item" href="#">Ice Cream</a></li>
-                  <li><a class="dropdown-item" href="#">Dry Fruits</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'ML' %}">Milk</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'LS' %}">Lassi</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'GH' %}">Badam Sake</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'IC' %}">Chocolate</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'IC' %}">Ice Cream</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'PN' %}">Dry Fruits</a></li>
                   
                  
                 </ul>
@@ -89,6 +89,8 @@
         </div>
       </nav>
       {% block banner-slider %} {% endblock banner-slider %}
+
+      {% block information %} {% endblock information %}
 
       {% block content %} {% endblock content %}
 
