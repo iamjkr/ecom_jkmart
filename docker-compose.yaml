@@ -3,5 +3,5 @@ version: '3.9'
 services:
   web-django:
     build: .
-    port:
+    ports:
       - '8000:8000'
