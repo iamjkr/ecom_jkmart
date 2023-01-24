@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Code'){
+            steps{
+               git url: 'https://github.com/iamjkr/ecom_jkmart.git', branch: 'master'
+            
+            }
+            
+        }
+        stage('Buid'){
+             steps{
+                 sh 'docker build . -t iamjkr/ecom-web:latest'
+            }
+            
+        }
+        stage('Push'){
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'dockerHub',usernameVariable: 'docker_username', passwordVariable: 'docker_password')])
+                {
+                    sh 'docker login -u $docker_username -p $docker_password'
+                    sh 'docker push iamjkr/ecom-web:latest'
+                }
+            }
+        }
+  
+  
+        stage('Test'){
+            steps{
+                echo "Testing code"
+            }
+            
+        }
+        stage('Deploy'){
+            steps{
+                echo "Deploying code"
+            }
+            
+        }
+    }
+}
