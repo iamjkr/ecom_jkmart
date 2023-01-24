@@ -1,0 +1,7 @@
+version: '3.9'
+
+services:
+  web-django:
+    image: 'iamjkr/ecom-web:latest'
+    ports:
+      - '8002:8000'
