@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+    <br><br>
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-sm-6 offset-sm-3 text-center">
+                <hr>
+                <form method="POST" class="shadow p-5">
+                    {% csrf_token %}
+                    <h5 class="text-center text-dark">Login Here</h5>
+                    {% for field in form %}
+                        {{ field.label_tag }} {{ field }}
+                        <small class="text-danger">{{ field.errors | striptags }}</small><br>
+                    {% endfor %}
+                    <div class="text-center text-primary fw-bold">
+                        <small><a href="#"></a>Forgot Password ? </small>
+                    </div>
+                    <br>
+
+
+                    <center>
+                        <input type="submit" value="Submit" class="btn btn-success">
+                        <input type="reset" value="Clear" class="btn btn-danger">
+                    </center>
+                </form>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="text-center alert alert-{{ message.tags }}">
+                            <!--- {% if message.tags %} {{ message.tags }} {% endif %} --->
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% elif form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="text-center alert alert-danger my-3">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+                <br>
+                <div class="text-center text-primary fw-bold">
+                    <small>New User ? <a href="{% url 'registration' %}" class="text-muted">Create an
+                        Account</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

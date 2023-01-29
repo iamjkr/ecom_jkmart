@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Registration {% endblock title%}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-4 col-md-4">
+                <form method="POST" class="shadow p-5" >
+                    {% csrf_token %}
+                    <h5 class="text-center text-warning">Please Register Your Details</h5>
+                {{ form }}<br>
+                    <center>
+                <input type="submit" value="Submit" class="btn btn-success">
+                <input type="reset" value="Clear" class="btn btn-danger">
+                    </center>
+                </form>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="text-center alert alert-{{ message.tags }}">
+                       <!--- {% if message.tags %} {{ message.tags }} {% endif %} --->
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% elif form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="text-center alert alert-danger my-3">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            <br>
+            <div class="text-center text-primary fw-bold">
+            <small>Existing User ? <a href="{% url 'login' %}" class="text-muted">Login Now</a></small>
+            </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

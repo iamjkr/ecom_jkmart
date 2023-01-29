@@ -39,19 +39,21 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'category' 'ML' %}">Milk</a></li>
                         <li><a class="dropdown-item" href="{% url 'category' 'LS' %}">Lassi</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'GH' %}">Badam Sake</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'IC' %}">Chocolate</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'IC' %}">Ice Cream</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'PN' %}">Dry Fruits</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'GH' %}">Ghee</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'CR' %}">Curd</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'IC' %}">Ice-Cream</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'MS' %}">MilkShake</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'PN' %}">Paneer</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'CH' %}">Chesse</a></li>
 
 
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">About Us</a>
+                    <a class="nav-link text-white" href="{% url 'about' %}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Contact Us</a>
+                    <a class="nav-link text-white" href="{% url 'contact' %}">Contact Us</a>
                 </li>
 
             </ul>
@@ -67,7 +69,7 @@
                   Jeet
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
                 <li><a class="dropdown-item" href="#">Orders</a></li>
                 <li><a class="dropdown-item" href="#">Change Password</a></li>
                 <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -78,10 +80,10 @@
                 <a href="#" class="nav-link text-white">Cart</a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">Login</a>
+                <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">Sign Up</a>
+                <a href="{% url 'registration' %}" class="nav-link text-white">Sign Up</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white">Wishlist</a>
