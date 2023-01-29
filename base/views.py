@@ -28,7 +28,7 @@ class CategoryView(View):
 
 
 class CategoryTitle(View):
-     def product_detail(request, title):
+    # def product_detail(request, title):
     #     product = Product.objects.get(title=title)
     #     return render(request, 'category.html', {'product': product})
     def get(self, request,val):
