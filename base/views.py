@@ -113,6 +113,12 @@ class UpdateAddress(View):
         form = CustomerProfileForm(request.POST)
         if form.is_valid():
             address = Customer.objects.get(pk=pk)
+            address.name = form.cleaned_data['name']
+            address.locality = form.cleaned_data['locality']
+            address.city = form.cleaned_data['city']
+            address.mobile = form.cleaned_data['mobile']
+            address.state = form.cleaned_data['state']
+            address.zipcode = form.cleaned_data['zipcode']
             address.save()
             messages.success(request, 'Address Updated Successfully')
             return redirect('address')
