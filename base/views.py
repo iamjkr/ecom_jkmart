@@ -85,7 +85,7 @@ def address(request):
     address = Customer.objects.filter(user=request.user)
     return render(request, 'address.html', locals())
 
-
+#user account address update
 class UpdateAddress(View):
     # form_class = CustomerProfileForm
     # template_name = 'update_address.html'
