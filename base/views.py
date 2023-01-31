@@ -127,5 +127,5 @@ class UpdateAddress(View):
             return render(request, 'update_address.html', locals())
 
 
-
-
+class PasswordResetCompleteView(View):
+    pass

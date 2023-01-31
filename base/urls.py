@@ -4,7 +4,8 @@ from django.urls import path
 from base import views
 from django.contrib.auth import views as auth_view
 
-from base.forms import UserLoginForm, PasswordResetForm
+
+from base.forms import UserLoginForm, PasswordResetForm, PasswordChangeForm, MySetPasswordForm
 from base.views import CategoryView, CategoryDetail, CategoryTitle, RegistrationView, ProfileView, UpdateAddress
 
 urlpatterns = [
@@ -23,8 +24,16 @@ urlpatterns = [
     #login authentication
     path('registration/', RegistrationView.as_view(), name='registration'),
     path('accounts/login/', auth_view.LoginView.as_view(template_name='login.html', authentication_form=UserLoginForm), name='login'),
-    path('password_reset/', auth_view.PasswordResetView.as_view(template_name='password_reset.html', form_class=PasswordResetForm), name='password_reset'),
+    path('password_change/', auth_view.PasswordChangeView.as_view(template_name='password_change.html', form_class=PasswordChangeForm, success_url='/passwordchangedone'), name='password_change'),
+    path('passwordchangedone/',auth_view.PasswordChangeDoneView.as_view(template_name='passssword_change_done.html'), name='password_change_done'),
+    path('logout/', auth_view.LogoutView.as_view(next_page='login'), name='logout'),
 
-   # path('product/<str:title>/', product_detail, name='product_detail')
-    
+    #passwrord rest
+    path('password_reset/', auth_view.PasswordResetView.as_view(template_name='password_reset.html', form_class=PasswordResetForm), name='password_reset'),
+    path('password_reset/done/', auth_view.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
+    path('password_reset_confirm/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name='password_reset_confirm'),
+
+    #path('password_reset_confirm/<uidb64>/<token>',auth_view.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html', ), name='password_reset_confirm'),
+    path('password_reset_complete/', auth_view.PasswordResetCompleteView.as_view(template_name='password_rest_complete.html'), name='password_reset_complete'),
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
