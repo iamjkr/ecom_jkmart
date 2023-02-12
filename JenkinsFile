@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Code'){
             steps{
-               git url: 'https://github.com/iamjkr/ecom_jkmart.git', branch: 'master'
+               git 'https://github.com/iamjkr/ecom_jkmart.git'
             
             }
             
         }
         stage('Buid'){
              steps{
-                 sh 'docker build . -t iamjkr/ecom-web:latest'
+                 sh 'docker build . -t iamjkr/ecom-dj:latest'
             }
             
         }
