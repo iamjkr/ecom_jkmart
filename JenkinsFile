@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Buid'){
              steps{
-                 sh 'docker build . -t iamjkr/ecom-dj:latest'
+                 sh 'docker build . -t iamjkr/webe:latest'
             }
             
         }
@@ -20,7 +20,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerHub',usernameVariable: 'docker_username', passwordVariable: 'docker_password')])
                 {
                     sh 'docker login -u $docker_username -p $docker_password'
-                    sh 'docker push iamjkr/ecom-dj:latest'
+                    sh 'docker push iamjkr/webe:latest'
                 }
             }
         }
