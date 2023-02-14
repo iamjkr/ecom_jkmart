@@ -8,8 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'sudo apt-get install sudo'
-        sh 'sudo -H pip install -r requirements.txt'
+       
       }
     }
     stage('Test') {
@@ -19,7 +18,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'python manage.py runserver 0.0.0.0:8000'
+     
       }
     }
   }
